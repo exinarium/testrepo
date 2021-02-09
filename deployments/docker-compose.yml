@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+    candidateprofileapi:
+        image: creativ360/development:covidscreener_candidateprofileapi1.0
+        deploy:
+            replicas: 1
+        restart: unless-stopped
+        stop_grace_period: 2m
+        expose:
+            - '8080'
+        networks:
+            screener:
+networks:
+    screener:
+        external:
+            name: covidscreener-network
